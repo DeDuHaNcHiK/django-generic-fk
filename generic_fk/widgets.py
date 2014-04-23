@@ -6,8 +6,9 @@ from django.utils.safestring import mark_safe
 
 
 class ContentTypeSelect(forms.Select):
-    def __init__(self, lookup_id='lookup_id_object_id', attrs=None, choices=()):
+    def __init__(self, lookup_id='lookup_id_object_id', raw_fk='id_object_id', attrs=None, choices=()):
         self.lookup_id = lookup_id
+        self.raw_fk = raw_fk
         super(ContentTypeSelect, self).__init__(attrs, choices)
 
     def render(self, name, value, attrs=None, choices=()):
@@ -34,13 +35,16 @@ class ContentTypeSelect(forms.Select):
             '%(choiceoutput)s'
             '    $(\'#%(id)s\').change(function (){'
             '        $(\'#%(fk_id)s\').attr(\'href\',%(id)s_choice_urls[$(this).val()]);'
+            '        $(\'#%(raw_fk)s\').val(\'\');'
+            '        $(\'#%(raw_fk)s\').parent(\'div\').find(\'strong\').text(\'\');'
             '    });'
             '  });'
             '})(django.jQuery);'
             '</script>' % {
                 'choiceoutput': choiceoutput,
                 'id': attrs['id'],
-                'fk_id': self.lookup_id
+                'fk_id': self.lookup_id,
+                'raw_fk': self.raw_fk
             }
         )
         return mark_safe(u''.join(output))
