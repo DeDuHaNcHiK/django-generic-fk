@@ -1,12 +1,13 @@
 # coding: utf-8
 from functools import partial
+
 from django.contrib import admin
-from django.contrib.admin import ModelAdmin
 from django.contrib.admin.util import flatten_fieldsets
 from django.contrib.admin.widgets import ForeignKeyRawIdWidget
 from django.core.exceptions import ObjectDoesNotExist
 from django.db.models import ManyToOneRel
-from django.forms.models import (modelform_factory,)
+from django.forms.models import (modelform_factory, )
+
 from generic_fk.widgets import ContentTypeSelect
 
 

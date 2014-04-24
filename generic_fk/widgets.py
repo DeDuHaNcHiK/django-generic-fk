@@ -1,5 +1,6 @@
 # coding: utf-8
 from itertools import chain
+
 from django import forms
 from django.contrib.contenttypes.models import ContentType
 from django.utils.safestring import mark_safe
