@@ -17,7 +17,7 @@ setup(
     author='Tierzov Andrii',
     author_email='avtierzov@gmail.com',
 
-    url='https://bitbucket.org/avtierzov/django-generic-fk',
+    url='https://github.com/DeDuHaNcHiK/django-generic-fk',
     description='Django application for GenericForeignKey',
     long_description=read("README.rst"),
 
