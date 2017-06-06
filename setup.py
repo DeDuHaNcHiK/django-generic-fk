@@ -26,7 +26,7 @@ setup(
     zip_safe=False,
     install_requires=['Django ~= 1.11'],
     classifiers=[
-        'Development Status :: 5 - Production/Beta',
+        'Development Status :: 5 - Production/Stable',
         'Environment :: Web Environment',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: BSD License',
