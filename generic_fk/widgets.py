@@ -12,17 +12,17 @@ class ContentTypeSelect(forms.Select):
         self.raw_fk = raw_fk
         super(ContentTypeSelect, self).__init__(attrs, choices)
 
-    def render(self, name, value, attrs=None, choices=()):
-        output = super(ContentTypeSelect, self).render(name, value, attrs, choices)
+    def render(self, name, value, attrs=None, renderer=None):
+        output = super(ContentTypeSelect, self).render(name, value, attrs, renderer=None)
 
-        choices = chain(self.choices, choices)
+        choices = self.choices
         choiceoutput = ' var %s_choice_urls = {' % (attrs['id'],)
         for choice in choices:
             try:
                 ctype = ContentType.objects.get(pk=int(choice[0]))
-                choiceoutput += '    \'%s\' : \'../../../%s/%s/?t=%s\',' % (
+                choiceoutput += '    \'%s\' : \'../../../%s/?_to_field=%s\',' % (
                     str(choice[0]),
-                    ctype.app_label, ctype.model,
+                    ctype.model,
                     ctype.model_class()._meta.pk.name
                 )
             except:

@@ -4,3 +4,4 @@
 *.sql
 env/
 build/
+*.sqlite3
