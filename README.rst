@@ -1,3 +1,5 @@
+# Deprecated new version -> [admin-pretty-gfk](https://github.com/DeDuHaNcHiK/admin-pretty-gfk)
+
 Description
 ===========
 
